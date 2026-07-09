@@ -1,0 +1,53 @@
+# I can IPL 620vm.ins with this conf file.
+# All my DVD files, 620GANUC, 620GARAM, …, CKDSPL09
+# are stored in the same folder as this conf file.
+
+CPUSERIAL   23E5DE
+CPUMODEL    2818
+MAINSIZE    2048
+CNSLPORT    3270
+ARCHLVL     Z/ARCH 
+#FACILITY    ENABLE 006_ASN_LX_REUSE
+#FACILITY    QUERY  006_ASN_LX_REUSE
+#FACILITY    ENABLE BIT44  
+#FACILITY    QUERY  BIT44
+NUMCPU      1
+LOADPARM    ......
+PANRATE     SLOW
+
+DIAG8CMD    ENABLE
+PGMPRDOS    LICENSED
+#OSTAILOR    QUIET
+LPARNAME    VTEZVM11
+LEGACYSENSEID   ENABLE
+TRACEOPT    TRADITIONAL
+
+#---------------------------------------------------------
+#   Unit record devices
+#---------------------------------------------------------
+  
+ #000C 3505 3505 sockdev ascii trunc eof
+ #000D 3525 pnch/pun00d.txt ascii crlf
+ #000E 1403 prt/prt00e.txt crlf
+ #000F 1403 prt/prt00f.txt crlf
+  
+#---------------------------------------------------------
+#   3270 Display terminals
+#---------------------------------------------------------
+
+ 0000        SYSG
+
+ C000.12      3270  
+
+#---------------------------------------------------------
+#   Direct-access storage devices
+#---------------------------------------------------------
+
+ # zVM 6.2 DASD files SSI Member 1
+ 6280        3390  dasd/zVM/VTEZVM11/M01RES.ckd cu=3990-6 # System Residence
+ 6281        3390  dasd/zVM/VTEZVM11/M01S01.ckd cu=3990-6 # System Spool 1
+ 6282        3390  dasd/zVM/VTEZVM11/M01P01.ckd cu=3990-6 # System Page 1
+ 
+ # zVM 6.2 DASD files SSI Shared
+ 6283        3390  dasd/zVM/VTEZVM11/VMCOM1.ckd cu=3990-6 # Common 1
+ 6284        3390  dasd/zVM/VTEZVM11/620RL1.ckd cu=3990-6 # Relese Volume 1
